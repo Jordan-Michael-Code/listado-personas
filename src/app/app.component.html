@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="mb-4 text-primary text-left"><i class="fas fa-cogs mr-2"></i>Gestión de Personas</h2>
+      <form>
+        <div class="form-group">
+          <label for="nombre" class="text-info">Nombre</label>
+          <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingresa el nombre completo"
+            [(ngModel)]="newName" aria-describedby="helpId">
+          <small id="helpId" class="form-text text-muted">Ayuda para el nombre</small>
+        </div>
+        <div class="form-group">
+          <label for="apellido" class="text-info">Apellido</label>
+          <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Ingresa el apellido completo"
+            [(ngModel)]="newLastName" aria-describedby="helpIdApellido">
+          <small id="helpIdApellido" class="form-text text-muted">Ayuda para el apellido</small>
+        </div>
+        <button type="button" class="btn btn-primary btn-block mt-3 btn-rounded" (click)="agregarPersona()">
+          <i class="fas fa-user-plus" aria-hidden="true"></i> Agregar Persona
+        </button>
+      </form>
+      <h3 class="mt-4 mb-0 text-white text-left bg-secondary p-2 rounded">
+        <i class="fas fa-users mr-2"></i>Lista de Personas</h3>
+      <table class="table table-bordered table-striped text-center bg-white">
+        <thead class="thead-white">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.apellido }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
